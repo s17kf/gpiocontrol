@@ -3,7 +3,7 @@ from .state import State
 
 
 def get(pin_number):
-    command_result = subprocess.run(['/usr/bin/pinctrl', '-e', 'get', f'{pin_number}'],
+    command_result = subprocess.run(['/usr/bin/pinctrl', 'get', f'{pin_number}'],
                                     capture_output=True)
     if command_result.returncode != 0:
         raise Exception(f"ERROR: pin {pin_number} get: {command_result.stdout}")
